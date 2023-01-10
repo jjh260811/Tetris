@@ -120,28 +120,28 @@ public class SidePanel extends JPanel {
 		 * without needing to change the other strings.
 		 */
 		int offset;
-		
+		Font font = new Font("함초롱돋움",Font.PLAIN, 15);
 		/*
 		 * Draw the "Stats" category.
 		 */
-		g.setFont(LARGE_FONT);
-		g.drawString("Stats", SMALL_INSET, offset = STATS_INSET);
-		g.setFont(SMALL_FONT);
-		g.drawString("Level: " + tetris.getLevel(), LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("Score: " + tetris.getScore(), LARGE_INSET, offset += TEXT_STRIDE);
+		g.setFont(font);
+		g.drawString("스탯", SMALL_INSET, offset = STATS_INSET);
+		g.setFont(font);
+		g.drawString(tetris.getLevel()+"단계", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString(tetris.getScore()+"점", LARGE_INSET, offset += TEXT_STRIDE);
 		
 		/*
 		 * Draw the "Controls" category.
 		 */
-		g.setFont(LARGE_FONT);
-		g.drawString("Controls", SMALL_INSET, offset = CONTROLS_INSET);
-		g.setFont(SMALL_FONT);
-		g.drawString("A - Move Left", LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("D - Move Right", LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("Q - Rotate Anticlockwise", LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("E - Rotate Clockwise", LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("S - Drop", LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("P - Pause Game", LARGE_INSET, offset += TEXT_STRIDE);
+		g.setFont(font);
+		g.drawString("조작", SMALL_INSET, offset = CONTROLS_INSET);
+		g.setFont(font);
+		g.drawString("A - 왼쪽 이동", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString("D - 오른쪽 이동", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString("Q - 반시계방향 전환", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString("E - 시계방향 전환", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString("S - 빠르게", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString("P - 일시정지", LARGE_INSET, offset += TEXT_STRIDE);
 		
 		/*
 		 * Draw the next piece preview box.
