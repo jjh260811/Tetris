@@ -91,12 +91,12 @@ public class BoardPanel extends JPanel {
 	 * The larger font to display.
 	 */
 	private static final Font LARGE_FONT = new Font("Tahoma", Font.BOLD, 16);
-
+	private static final Font LFont = new Font("휴먼편지체", Font.BOLD, 25);
 	/**
 	 * The smaller font to display.
 	 */
 	private static final Font SMALL_FONT = new Font("Tahoma", Font.BOLD, 12);
-	
+	private static final Font SFont = new Font("휴먼편지체", Font.BOLD, 18);
 	/**
 	 * The Tetris instance.
 	 */
@@ -287,12 +287,16 @@ public class BoardPanel extends JPanel {
 		 * Draw the board differently depending on the current game state.
 		 */
 		if(tetris.isPaused()) {
-			g.setFont(LARGE_FONT);
+			g.setFont(LFont);
 			g.setColor(Color.WHITE);
-			String msg = "PAUSED";
-			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, CENTER_Y);
+			String msg = "일시정지";
+			String msg2 = "화장실 다녀오세용~~";
+			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, CENTER_Y-30);
+			g.setFont(SFont);
+			g.setColor(Color.WHITE);
+			g.drawString(msg2, CENTER_X - g.getFontMetrics().stringWidth(msg2) / 2, CENTER_Y+30);
 		} else if(tetris.isNewGame() || tetris.isGameOver()) {
-			g.setFont(LARGE_FONT);
+			g.setFont(LFont);
 			g.setColor(Color.WHITE);
 			
 			/*
@@ -300,11 +304,17 @@ public class BoardPanel extends JPanel {
 			 * we can handle them together and just use a ternary operator to change
 			 * the messages that are displayed.
 			 */
-			String msg = tetris.isNewGame() ? "TETRIS" : "GAME OVER";
+			String msg = tetris.isNewGame() ? "벽돌쌓기" : "게임오버...";
+
 			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, 150);
-			g.setFont(SMALL_FONT);
-			msg = "Press Enter to Play" + (tetris.isNewGame() ? "" : " Again");
+			
+			g.setFont(SFont);
+			msg = (tetris.isNewGame() ? "" : " 다시 ")+"시작하려면";
+			String msg2 = " 엔터를 눌러주세요";
 			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, 300);
+			g.setFont(SFont);
+			g.setColor(Color.WHITE);
+			g.drawString(msg2, CENTER_X - g.getFontMetrics().stringWidth(msg2) / 2, 320);
 		} else {
 			
 			/*

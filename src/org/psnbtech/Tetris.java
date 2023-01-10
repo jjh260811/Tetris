@@ -121,7 +121,7 @@ public class Tetris extends JFrame {
 		/*
 		 * Set the basic properties of the window.
 		 */
-		super("Tetris");
+		super("벽돌쌓기");
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
@@ -182,7 +182,8 @@ public class Tetris extends JFrame {
 					break;
 					
 				/*
-				 * Rotate Anticlockwise - When pressed, check to see that the game is not paused
+				 * Rotate Anticlockwise - When pressed, c
+				 * heck to see that the game is not paused
 				 * and then attempt to rotate the piece anticlockwise. Because of the size and
 				 * complexity of the rotation code, as well as it's similarity to clockwise
 				 * rotation, the code for rotating the piece is handled in another method.

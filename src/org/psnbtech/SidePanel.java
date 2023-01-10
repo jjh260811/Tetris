@@ -80,12 +80,12 @@ public class SidePanel extends JPanel {
 	 * The small font.
 	 */
 	private static final Font SMALL_FONT = new Font("Tahoma", Font.BOLD, 11);
-	
+	private static final Font SFont = new Font("휴먼편지체",Font.BOLD, 13);
 	/**
 	 * The large font.
 	 */
 	private static final Font LARGE_FONT = new Font("Tahoma", Font.BOLD, 13);
-	
+	private static final Font LFont = new Font("휴먼편지체",Font.BOLD, 15);
 	/**
 	 * The color to draw the text and preview box in.
 	 */
@@ -120,22 +120,22 @@ public class SidePanel extends JPanel {
 		 * without needing to change the other strings.
 		 */
 		int offset;
-		Font font = new Font("함초롱돋움",Font.PLAIN, 15);
+		
 		/*
 		 * Draw the "Stats" category.
 		 */
-		g.setFont(font);
+		g.setFont(LFont);
 		g.drawString("스탯", SMALL_INSET, offset = STATS_INSET);
-		g.setFont(font);
+		g.setFont(SFont);
 		g.drawString(tetris.getLevel()+"단계", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString(tetris.getScore()+"점", LARGE_INSET, offset += TEXT_STRIDE);
 		
 		/*
 		 * Draw the "Controls" category.
 		 */
-		g.setFont(font);
+		g.setFont(LFont);
 		g.drawString("조작", SMALL_INSET, offset = CONTROLS_INSET);
-		g.setFont(font);
+		g.setFont(SFont);
 		g.drawString("A - 왼쪽 이동", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString("D - 오른쪽 이동", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString("Q - 반시계방향 전환", LARGE_INSET, offset += TEXT_STRIDE);
@@ -146,8 +146,8 @@ public class SidePanel extends JPanel {
 		/*
 		 * Draw the next piece preview box.
 		 */
-		g.setFont(LARGE_FONT);
-		g.drawString("Next Piece:", SMALL_INSET, 70);
+		g.setFont(LFont);
+		g.drawString("다음 타일:", SMALL_INSET, 70);
 		g.drawRect(SQUARE_CENTER_X - SQUARE_SIZE, SQUARE_CENTER_Y - SQUARE_SIZE, SQUARE_SIZE * 2, SQUARE_SIZE * 2);
 		
 		/*
