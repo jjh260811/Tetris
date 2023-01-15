@@ -1,5 +1,8 @@
 package org.psnbtech;
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -113,11 +116,12 @@ public class Tetris extends JFrame {
 	 */
 	private float gameSpeed;
 		
+	public static HomeFrame homeFrame;
 	/**
 	 * Creates a new Tetris instance. Sets up the window's properties,
 	 * and adds a controller listener.
 	 */
-	private Tetris() {
+	public Tetris() {
 		/*
 		 * Set the basic properties of the window.
 		 */
@@ -130,6 +134,7 @@ public class Tetris extends JFrame {
 		 * Initialize the BoardPanel and SidePanel instances.
 		 */
 		this.board = new BoardPanel(this);
+		
 		this.side = new SidePanel(this);
 		
 		/*
@@ -153,7 +158,7 @@ public class Tetris extends JFrame {
 				 * paused and that there is no drop cooldown, then set the
 				 * logic timer to run at a speed of 25 cycles per second.
 				 */
-				case KeyEvent.VK_S:
+				case KeyEvent.VK_DOWN:
 					if(!isPaused && dropCooldown == 0) {
 						logicTimer.setCyclesPerSecond(25.0f);
 					}
@@ -164,7 +169,7 @@ public class Tetris extends JFrame {
 				 * not paused and that the position to the left of the current
 				 * position is valid. If so, we decrement the current column by 1.
 				 */
-				case KeyEvent.VK_A:
+				case KeyEvent.VK_LEFT:
 					if(!isPaused && board.isValidAndEmpty(currentType, currentCol - 1, currentRow, currentRotation)) {
 						currentCol--;
 					}
@@ -175,7 +180,7 @@ public class Tetris extends JFrame {
 				 * not paused and that the position to the right of the current
 				 * position is valid. If so, we increment the current column by 1.
 				 */
-				case KeyEvent.VK_D:
+				case KeyEvent.VK_RIGHT:
 					if(!isPaused && board.isValidAndEmpty(currentType, currentCol + 1, currentRow, currentRotation)) {
 						currentCol++;
 					}
@@ -211,9 +216,10 @@ public class Tetris extends JFrame {
 				 * If so, toggle the pause variable and update the logic timer to reflect this
 				 * change, otherwise the game will execute a huge number of updates and essentially
 				 * cause an instant game over when we unpause if we stay paused for more than a
+				 * 
 				 * minute or so.
 				 */
-				case KeyEvent.VK_P:
+				case KeyEvent.VK_ESCAPE:
 					if(!isGameOver && !isNewGame) {
 						isPaused = !isPaused;
 						logicTimer.setPaused(isPaused);
@@ -243,7 +249,7 @@ public class Tetris extends JFrame {
 				 * back to whatever the current game speed is and clear out
 				 * any cycles that might still be elapsed.
 				 */
-				case KeyEvent.VK_S:
+				case KeyEvent.VK_DOWN:
 					logicTimer.setCyclesPerSecond(gameSpeed);
 					logicTimer.reset();
 					break;
@@ -264,10 +270,12 @@ public class Tetris extends JFrame {
 	
 	/**
 	 * Starts the game running. Initializes everything and enters the game loop.
+	 * //게임 실행을 시작합니다. 모든 것을 초기화하고 게임 루프에 들어갑니다.
 	 */
-	private void startGame() {
+	public void startGame() {
 		/*
 		 * Initialize our random number generator, logic timer, and new game variables.
+		 * 난수 발생기, 논리 타이머 및 새 게임 변수를 초기화합니다.
 		 */
 		this.random = new Random();
 		this.isNewGame = true;
@@ -276,12 +284,14 @@ public class Tetris extends JFrame {
 		/*
 		 * Setup the timer to keep the game from running before the user presses enter
 		 * to start it.
+		 * 사용자가 Enter 키를 눌러 게임을 시작하기 전에 게임이 실행되지 않도록 타이머를 설정합니다.
 		 */
 		this.logicTimer = new Clock(gameSpeed);
 		logicTimer.setPaused(true);
 		
 		while(true) {
 			//Get the time that the frame started.
+			//프레임이 시작된 시간을 가져옵니다.
 			long start = System.nanoTime();
 			
 			//Update the logic timer.
@@ -293,6 +303,7 @@ public class Tetris extends JFrame {
 			 */
 			if(logicTimer.hasElapsedCycle()) {
 				updateGame();
+				System.out.println();
 			}
 		
 			//Decrement the drop cool down if necessary.
@@ -560,9 +571,14 @@ public class Tetris extends JFrame {
 	 * game instance.
 	 * @param args Unused.
 	 */
+	private static Tetris tetris;
 	public static void main(String[] args) {
-		Tetris tetris = new Tetris();
+		
+		//homeFrame = new HomeFrame(tetris);
+
+		tetris = new Tetris();
 		tetris.startGame();
 	}
 
 }
+

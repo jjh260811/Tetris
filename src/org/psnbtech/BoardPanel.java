@@ -104,6 +104,7 @@ public class BoardPanel extends JPanel {
 	
 	/**
 	 * The tiles that make up the board.
+	 * 
 	 */
 	private TileType[][] tiles;
 		
@@ -311,10 +312,12 @@ public class BoardPanel extends JPanel {
 			g.setFont(SFont);
 			msg = (tetris.isNewGame() ? "" : " 다시 ")+"시작하려면";
 			String msg2 = " 엔터를 눌러주세요";
+			String msgP = (tetris.isNewGame() ? "조작법은 P를 눌러주세요" : "");
 			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, 300);
 			g.setFont(SFont);
 			g.setColor(Color.WHITE);
 			g.drawString(msg2, CENTER_X - g.getFontMetrics().stringWidth(msg2) / 2, 320);
+			g.drawString(msgP, CENTER_X - g.getFontMetrics().stringWidth(msgP) / 2, 360);
 		} else {
 			
 			/*
