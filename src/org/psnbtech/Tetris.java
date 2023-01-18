@@ -62,7 +62,7 @@ public class Tetris extends JFrame {
 	/**
 	 * The current level we're on.
 	 */
-	private int level;
+	private int level ;
 	
 	/**
 	 * The current score.
@@ -116,6 +116,8 @@ public class Tetris extends JFrame {
 	 */
 	private float gameSpeed;
 		
+	private level_alarm alarm;
+	private int al;
 	public static HomeFrame homeFrame;
 	/**
 	 * Creates a new Tetris instance. Sets up the window's properties,
@@ -137,11 +139,14 @@ public class Tetris extends JFrame {
 		
 		this.side = new SidePanel(this);
 		
+		this.alarm = new level_alarm(this);
 		/*
 		 * Add the BoardPanel and SidePanel instances to the window.
 		 */
+
 		add(board, BorderLayout.CENTER);
 		add(side, BorderLayout.EAST);
+		add(alarm, BorderLayout.SOUTH);
 		
 		/*
 		 * Adds a custom anonymous KeyListener to the frame.
@@ -290,6 +295,7 @@ public class Tetris extends JFrame {
 		this.random = new Random();
 		this.isNewGame = true;
 		this.gameSpeed = 1.0f;
+
 		
 		/*
 		 * Setup the timer to keep the game from running before the user presses enter
@@ -313,6 +319,7 @@ public class Tetris extends JFrame {
 			 */
 			if(logicTimer.hasElapsedCycle()) {
 				updateGame();
+				al = getLevel();
 				System.out.println();
 			}
 		
@@ -390,6 +397,8 @@ public class Tetris extends JFrame {
 			 * Spawn a new piece to control.
 			 */
 			spawnPiece();
+			//this.alarm = new level_alarm(this);
+
 		}		
 	}
 	
@@ -399,6 +408,7 @@ public class Tetris extends JFrame {
 	private void renderGame() {
 		board.repaint();
 		side.repaint();
+		alarm.repaint();
 	}
 	
 	/**

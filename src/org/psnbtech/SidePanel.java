@@ -79,12 +79,12 @@ public class SidePanel extends JPanel {
 	/**
 	 * The small font.
 	 */
-	private static final Font SMALL_FONT = new Font("Tahoma", Font.BOLD, 11);
+	
 	private static final Font SFont = new Font("휴먼편지체",Font.BOLD, 13);
 	/**
 	 * The large font.
 	 */
-	private static final Font LARGE_FONT = new Font("Tahoma", Font.BOLD, 13);
+	
 	private static final Font LFont = new Font("휴먼편지체",Font.BOLD, 15);
 	/**
 	 * The color to draw the text and preview box in.
