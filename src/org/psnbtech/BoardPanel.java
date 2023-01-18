@@ -91,12 +91,12 @@ public class BoardPanel extends JPanel {
 	 * The larger font to display.
 	 */
 	private static final Font LARGE_FONT = new Font("Tahoma", Font.BOLD, 16);
-	private static final Font LFont = new Font("휴먼편지체", Font.BOLD, 25);
+	private static final Font LFont = new Font("함초롱돋움", Font.BOLD, 25);
 	/**
 	 * The smaller font to display.
 	 */
 	private static final Font SMALL_FONT = new Font("Tahoma", Font.BOLD, 12);
-	private static final Font SFont = new Font("휴먼편지체", Font.BOLD, 18);
+	private static final Font SFont = new Font("함초롱돋움", Font.BOLD, 18);
 	/**
 	 * The Tetris instance.
 	 */
@@ -199,6 +199,11 @@ public class BoardPanel extends JPanel {
 	 * removes them from the game.
 	 * @return The number of lines that were cleared.
 	 */
+	/*보드에서 라인이 지워졌는지 확인합니다
+	* 게임에서 그들을 제거합니다.
+	* @return 지워진 라인 수입니다.
+	*/
+	 
 	public int checkLines() {
 		int completedLines = 0;
 		
@@ -292,12 +297,13 @@ public class BoardPanel extends JPanel {
 			g.setColor(Color.WHITE);
 			String msg = "일시정지";
 			
-			String msg2 = "계속 하시려면 ESC를 눌러주세요";
+			String msg2 = "계속 하시려면 ";
+			String msg3 = "ESC를 눌러주세요";
 			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, CENTER_Y-30);
 			g.setFont(SFont);
 			g.setColor(Color.WHITE);
 			g.drawString(msg2, CENTER_X - g.getFontMetrics().stringWidth(msg2) / 2, CENTER_Y+30);
-			
+			g.drawString(msg3, CENTER_X - g.getFontMetrics().stringWidth(msg3) / 2, CENTER_Y+50);
 		} else if(tetris.isNewGame() || tetris.isGameOver()) {
 			g.setFont(LFont);
 			g.setColor(Color.WHITE);

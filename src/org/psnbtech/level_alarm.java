@@ -8,7 +8,7 @@ import java.awt.*;
 public class level_alarm extends JPanel{
     private Tetris tetris;
     private String msg;
-    private static final Font LFont = new Font("휴먼편지체",Font.PLAIN, 15);
+    private static final Font LFont = new Font("함초롱돋움",Font.PLAIN, 15);
     public level_alarm(Tetris tetris){
        this.tetris = tetris;
         
