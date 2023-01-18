@@ -56,6 +56,7 @@ public class Help extends JFrame{
         jd.add(j,BorderLayout.NORTH);
         jd.add(explain_j,BorderLayout.CENTER);
         jd.add(jButton,BorderLayout.SOUTH);
+        setLocationRelativeTo(null);
         jd.setVisible(true);
     }
 }

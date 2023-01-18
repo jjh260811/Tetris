@@ -117,8 +117,8 @@ public class Tetris extends JFrame {
 	private float gameSpeed;
 		
 	private level_alarm alarm;
-	private int al;
-	public static HomeFrame homeFrame;
+	
+	
 	/**
 	 * Creates a new Tetris instance. Sets up the window's properties,
 	 * and adds a controller listener.
@@ -165,7 +165,7 @@ public class Tetris extends JFrame {
 				 */
 				case KeyEvent.VK_DOWN:
 					if(!isPaused && dropCooldown == 0) {
-						logicTimer.setCyclesPerSecond(25.0f);
+						logicTimer.setCyclesPerSecond(50.0f);
 					}
 					break;
 					
@@ -244,10 +244,11 @@ public class Tetris extends JFrame {
 				
 
 				case KeyEvent.VK_P:
-					if(!isGameOver && !isNewGame){
+					
+					if(!isGameOver && !isNewGame&&!isPaused){
 						isPaused = !isPaused;
 						logicTimer.setPaused(isPaused);
-						
+
 					}
 					Help help = new Help();
 					break;
@@ -319,8 +320,8 @@ public class Tetris extends JFrame {
 			 */
 			if(logicTimer.hasElapsedCycle()) {
 				updateGame();
-				al = getLevel();
-				System.out.println();
+				
+				
 			}
 		
 			//Decrement the drop cool down if necessary.
