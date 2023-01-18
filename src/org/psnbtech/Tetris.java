@@ -236,6 +236,16 @@ public class Tetris extends JFrame {
 					}
 					break;
 				
+				
+
+				case KeyEvent.VK_P:
+					if(!isGameOver && !isNewGame){
+						isPaused = !isPaused;
+						logicTimer.setPaused(isPaused);
+						
+					}
+					Help help = new Help();
+					break;
 				}
 			}
 			

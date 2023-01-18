@@ -291,11 +291,13 @@ public class BoardPanel extends JPanel {
 			g.setFont(LFont);
 			g.setColor(Color.WHITE);
 			String msg = "일시정지";
-			String msg2 = "화장실 다녀오세용~~";
+			
+			String msg2 = "계속 하시려면 ESC를 눌러주세요";
 			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, CENTER_Y-30);
 			g.setFont(SFont);
 			g.setColor(Color.WHITE);
 			g.drawString(msg2, CENTER_X - g.getFontMetrics().stringWidth(msg2) / 2, CENTER_Y+30);
+			
 		} else if(tetris.isNewGame() || tetris.isGameOver()) {
 			g.setFont(LFont);
 			g.setColor(Color.WHITE);
@@ -312,12 +314,12 @@ public class BoardPanel extends JPanel {
 			g.setFont(SFont);
 			msg = (tetris.isNewGame() ? "" : " 다시 ")+"시작하려면";
 			String msg2 = " 엔터를 눌러주세요";
-			String msgP = (tetris.isNewGame() ? "조작법은 P를 눌러주세요" : "");
+			
 			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, 300);
 			g.setFont(SFont);
 			g.setColor(Color.WHITE);
 			g.drawString(msg2, CENTER_X - g.getFontMetrics().stringWidth(msg2) / 2, 320);
-			g.drawString(msgP, CENTER_X - g.getFontMetrics().stringWidth(msgP) / 2, 360);
+			
 		} else {
 			
 			/*

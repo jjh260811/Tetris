@@ -134,14 +134,16 @@ public class SidePanel extends JPanel {
 		 * Draw the "Controls" category.
 		 */
 		g.setFont(LFont);
-		g.drawString("조작", SMALL_INSET, offset = CONTROLS_INSET);
+		//g.drawString("조작", SMALL_INSET, offset = CONTROLS_INSET);
+		g.drawString("조작법:P",SMALL_INSET , offset = CONTROLS_INSET+60);
+		/* 
 		g.setFont(SFont);
 		g.drawString("방향키 왼쪽 - 왼쪽 이동", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString("방향키 오른쪽 - 오른쪽 이동", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString("Q - 반시계방향 전환", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString("E - 시계방향 전환", LARGE_INSET, offset += TEXT_STRIDE);
 		g.drawString("방향키 아래 - 빠르게", LARGE_INSET, offset += TEXT_STRIDE);
-		g.drawString("ESC - 일시정지", LARGE_INSET, offset += TEXT_STRIDE);
+		g.drawString("ESC - 일시정지", LARGE_INSET, offset += TEXT_STRIDE);*/
 		
 		/*
 		 * Draw the next piece preview box.
